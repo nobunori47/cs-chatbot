@@ -1,7 +1,8 @@
 # Claude + Supabase でフルスタック CS チャットボットを作った話
 
-**GitHub**: https://github.com/nobunori47/cs-chatbot  
-**デモ**: https://cs-chatbot-flame.vercel.app
+## リンク
+- **GitHub**: https://github.com/nobunori47/cs-chatbot
+- **デモ**: https://cs-chatbot-flame.vercel.app
 
 ---
 
@@ -161,6 +162,8 @@ const aiResponse = await anthropic.messages.create({
   })),
 });
 ```
+
+現在は `user` と `assistant` のメッセージのみを扱う前提で実装している。将来的にオペレーターの発言を会話履歴に含める場合は、Claude へ渡す前に `sender_type === 'operator'` を除外する処理が必要になる。
 
 `system` プロンプトに返金ポリシーや対応時間などを直書きすることで、FAQ ベースの応答が実現できる。今後さらに精度を上げるには、**FAQ 検索を挟む設計パターン**が有効だ。
 
